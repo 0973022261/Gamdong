@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.inhm.gamdong">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <receiver android:name=".GamDong">
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/gam_dong_info" />
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.inhm.ACTION_GAMDONG" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".Gamdongran">
+            <intent-filter>
+                <action android:name="com.example.inhm.ACTION_GAMDONG" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".UpdateService"
+            android:enabled="true"
+            android:exported="true"></service>
+    </application>
+
+</manifest>
